@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">SN</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Hello, I am <span>Your Name</span></h1>
+        <p>Machine Learning Enthusiast | Data Scientist</p>
+        <div class="cta-buttons">
+            <a href="#projects" class="btn">See Projects</a>
+            <a href="mailto:your@email.com" class="btn-outline">Get in touch</a>
+        </div>
+    </header>
+
+    <section id="projects">
+        <h2>Selected Projects</h2>
+        <div class="project-grid">
+            <div class="card">
+                <h3>Loan Approval Prediction</h3>
+                <p>A machine learning project to predict loan status...</p>
+                <div class="tags"><span>Python</span><span>Scikit-learn</span></div>
+                <a href="#">Code</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Designed and developed by Your Name</p>
+    </footer>
+</body>
+</html>
