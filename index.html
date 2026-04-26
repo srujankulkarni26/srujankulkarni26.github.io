@@ -1,975 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Srujan Kulkarni | Mechanical Engineering</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --ink: #000000;
-            --red: #e63946;
-            --red-dark: #b71c1c;
-            --paper: #ffffff;
-            --soft: #f6f6f6;
-            --text: #444444;
-            --muted: #777777;
-            --rule: rgba(0,0,0,0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--paper);
-            color: var(--ink);
-            overflow-x: hidden;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.1rem 4rem;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--rule);
-        }
-
-        .logo {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.35rem;
-            color: var(--ink);
-            text-decoration: none;
-            letter-spacing: -0.03em;
-        }
-
-        .logo em {
-            color: var(--red);
-            font-style: italic;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2.3rem;
-        }
-
-        nav a {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.7rem;
-            text-decoration: none;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--red);
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding-top: 4.5rem;
-            border-bottom: 1px solid var(--rule);
-        }
-
-        .hero-left {
-            padding: 5rem 4rem 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border-right: 1px solid var(--rule);
-        }
-
-        .hero-eyebrow {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--red);
-            margin-bottom: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .hero-eyebrow::before {
-            content: '';
-            width: 2rem;
-            height: 1px;
-            background: var(--red);
-        }
-
-        .hero h1 {
-            font-family: 'DM Serif Display', serif;
-            font-size: clamp(2.8rem, 5vw, 4.3rem);
-            line-height: 1;
-            letter-spacing: -0.04em;
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 em {
-            color: var(--red);
-            font-style: italic;
-        }
-
-        .hero-title {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--muted);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .hero-bio {
-            font-size: 1rem;
-            color: var(--text);
-            line-height: 1.75;
-            max-width: 44ch;
-            margin-bottom: 2rem;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2.2rem;
-        }
-
-        .btn-primary,
-        .btn-secondary {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.85rem 1.8rem;
-            text-decoration: none;
-            transition: all 0.25s ease;
-        }
-
-        .btn-primary {
-            background: var(--ink);
-            color: var(--paper);
-        }
-
-        .btn-primary:hover {
-            background: var(--red-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            border: 1px solid var(--ink);
-            color: var(--ink);
-        }
-
-        .btn-secondary:hover {
-            background: var(--ink);
-            color: var(--paper);
-            transform: translateY(-2px);
-        }
-
-        .hero-logos {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .hero-logos img {
-            height: 42px;
-            max-width: 130px;
-            object-fit: contain;
-            opacity: 0.9;
-            filter: grayscale(10%);
-            transition: opacity 0.2s ease, transform 0.2s ease;
-        }
-
-        .hero-logos img:hover {
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-
-        .hero-photo {
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem;
-        }
-
-        .photo-frame {
-            width: min(430px, 90%);
-            background: #ffffff;
-            border: 1px solid var(--rule);
-            padding: 1rem;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-        }
-
-        .photo-frame img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain;
-            object-position: center center;
-            background: #ffffff;
-        }
-
-        section {
-            padding: 5rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: baseline;
-            gap: 1.25rem;
-            margin-bottom: 3rem;
-        }
-
-        .section-num {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.68rem;
-            color: var(--red);
-            letter-spacing: 0.1em;
-        }
-
-        h2 {
-            font-family: 'DM Serif Display', serif;
-            font-size: clamp(1.9rem, 3vw, 2.6rem);
-            letter-spacing: -0.03em;
-        }
-
-        .section-rule {
-            flex: 1;
-            height: 1px;
-            background: var(--rule);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 4rem;
-        }
-
-        .about-text p {
-            color: var(--text);
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 1.2rem;
-        }
-
-        .highlight-box {
-            background: var(--soft);
-            border-left: 3px solid var(--red);
-            padding: 2rem;
-        }
-
-        .highlight-box h3 {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 1.2rem;
-        }
-
-        .highlight-box ul {
-            list-style: none;
-        }
-
-        .highlight-box li {
-            color: var(--text);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            padding: 0.55rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-        }
-
-        .highlight-box li:last-child {
-            border-bottom: none;
-        }
-
-        .projects-band {
-            background: var(--ink);
-            max-width: none;
-            color: var(--paper);
-        }
-
-        .projects-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .projects-band h2 {
-            color: var(--paper);
-        }
-
-        .projects-band .section-rule {
-            background: rgba(255,255,255,0.14);
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1px;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.12);
-        }
-
-        .project-card {
-            background: var(--ink);
-            padding: 2.5rem;
-            transition: background 0.25s ease;
-        }
-
-        .project-card:hover {
-            background: #111111;
-        }
-
-        .project-tag {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 1rem;
-        }
-
-        .project-card h3 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.55rem;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.9rem;
-        }
-
-        .project-card p {
-            color: rgba(255,255,255,0.65);
-            line-height: 1.75;
-            font-size: 0.93rem;
-            margin-bottom: 1rem;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-            margin-top: 1.2rem;
-        }
-
-        .tags span {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.62rem;
-            color: #f5a0a6;
-            border: 1px solid rgba(230,57,70,0.45);
-            padding: 0.3rem 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .experience-band {
-            background: var(--soft);
-            max-width: none;
-        }
-
-        .experience-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .exp-item {
-            display: grid;
-            grid-template-columns: 230px 1fr;
-            gap: 3rem;
-            padding: 2.5rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
-
-        .exp-item:first-of-type {
-            border-top: 1px solid rgba(0,0,0,0.08);
-        }
-
-        .exp-company {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.35rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .exp-role {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.68rem;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.4rem;
-        }
-
-        .exp-date {
-            color: var(--muted);
-            font-size: 0.82rem;
-        }
-
-        .exp-body ul {
-            list-style: none;
-        }
-
-        .exp-body li {
-            color: var(--text);
-            line-height: 1.7;
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-            padding-left: 1.2rem;
-            position: relative;
-        }
-
-        .exp-body li::before {
-            content: '—';
-            position: absolute;
-            left: 0;
-            color: var(--red);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .skill-card {
-            border: 1px solid var(--rule);
-            padding: 2rem;
-            background: var(--paper);
-        }
-
-        .skill-card h3 {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 1rem;
-        }
-
-        .skill-card p {
-            color: var(--text);
-            line-height: 1.7;
-            font-size: 0.92rem;
-        }
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .education-card {
-            border: 1px solid var(--rule);
-            padding: 2.2rem;
-            position: relative;
-        }
-
-        .education-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background: var(--red);
-        }
-
-        .education-logo {
-            height: 42px;
-            max-width: 120px;
-            object-fit: contain;
-            margin-bottom: 1rem;
-        }
-
-        .degree {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.68rem;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 0.6rem;
-        }
-
-        .school {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.35rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .edu-details {
-            color: var(--text);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        #contact {
-            background: var(--ink);
-            color: var(--paper);
-            max-width: none;
-        }
-
-        .contact-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-layout {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .contact-blurb {
-            font-family: 'DM Serif Display', serif;
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            line-height: 1.35;
-            letter-spacing: -0.03em;
-            color: rgba(255,255,255,0.9);
-        }
-
-        .contact-blurb em {
-            color: #f5a0a6;
-            font-style: italic;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.9rem;
-        }
-
-        .contact-links a {
-            color: var(--paper);
-            text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.14);
-            padding: 1rem 1.2rem;
-            font-size: 0.9rem;
-            transition: border-color 0.2s ease, background 0.2s ease;
-        }
-
-        .contact-links a:hover {
-            border-color: #f5a0a6;
-            background: rgba(255,255,255,0.05);
-        }
-
-        footer {
-            background: #000000;
-            color: rgba(255,255,255,0.35);
-            text-align: center;
-            padding: 1.5rem;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.68rem;
-            letter-spacing: 0.1em;
-        }
-
-        @media (max-width: 950px) {
-            nav {
-                padding: 1rem 1.5rem;
-            }
-
-            nav ul {
-                gap: 1.2rem;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                min-height: auto;
-            }
-
-            .hero-left {
-                padding: 7rem 1.5rem 3rem;
-                border-right: none;
-                border-bottom: 1px solid var(--rule);
-            }
-
-            .hero-photo {
-                padding: 2rem 1.5rem 3rem;
-            }
-
-            section {
-                padding: 3.5rem 1.5rem;
-            }
-
-            .about-grid,
-            .project-grid,
-            .education-grid,
-            .contact-layout,
-            .exp-item,
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 580px) {
-            nav ul {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.7rem;
-            }
-
-            .hero-logos {
-                gap: 1rem;
-            }
-
-            .hero-logos img {
-                height: 34px;
-                max-width: 105px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Srujan Kulkarni | Mechanical Engineering</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --ink: #000;
+    --red: #e63946;
+    --paper: #fff;
+    --text: #444;
+    --muted: #777;
+    --rule: rgba(0,0,0,0.1);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+}
+
+/* NAV */
+nav {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 4rem;
+    background: rgba(255,255,255,0.95);
+    border-bottom: 1px solid var(--rule);
+}
+
+.logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.logo em { color: var(--red); }
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+}
+
+nav a:hover { color: var(--red); }
+
+/* HERO */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+    min-height: 100vh;
+}
+
+.hero-left {
+    padding: 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--red);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero h1 em { color: var(--red); }
+
+.hero-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+}
+
+.hero-bio {
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.6rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--ink);
+    color: white;
+}
+
+.btn-primary:hover { background: var(--red); }
+
+.btn-secondary {
+    border: 1px solid var(--ink);
+    color: var(--ink);
+}
+
+/* LOGOS */
+.hero-logos {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.hero-logos img {
+    height: 40px;
+    object-fit: contain;
+    opacity: 0.9;
+}
+
+/* PHOTO (FIXED CLEAN VERSION) */
+.hero-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 2rem;
+}
+
+.hero-photo img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* SECTION */
+section {
+    padding: 5rem 4rem;
+    max-width: 1100px;
+    margin: auto;
+}
+
+h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* PROJECTS */
+.projects {
+    background: black;
+    color: white;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.project-card {
+    background: #111;
+    padding: 2rem;
+}
+
+.project-card h3 {
+    font-family: 'DM Serif Display', serif;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    color: #aaa;
+}
+
+/* EXPERIENCE */
+.exp-item {
+    margin-bottom: 2rem;
+}
+
+.exp-item h3 {
+    font-family: 'DM Serif Display', serif;
+}
+
+/* EDUCATION */
+.education-card {
+    margin-bottom: 2rem;
+}
+
+.education-logo {
+    height: 40px;
+    margin-bottom: 1rem;
+}
+
+/* CONTACT */
+#contact {
+    background: black;
+    color: white;
+}
+
+.contact-links a {
+    display: block;
+    margin-bottom: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+    .hero { grid-template-columns: 1fr; }
+    nav ul { display:none; }
+}
+
+</style>
 </head>
 
 <body>
 
-    <nav>
-        <a href="#" class="logo">Srujan <em>Kulkarni</em></a>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Work</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<nav>
+    <a href="#" class="logo">Srujan <em>Kulkarni</em></a>
+    <ul>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <header class="hero">
-        <div class="hero-left">
-            <p class="hero-eyebrow">Mechanical Engineering · Robotics · Product Design</p>
+<header class="hero">
 
-            <h1>Srujan<br><em>Kulkarni</em></h1>
+<div class="hero-left">
+    <p class="hero-eyebrow">Mechanical Engineering · Robotics</p>
 
-            <p class="hero-title">
-                MSE @ UPenn · Robotics & Mechatronics · Philadelphia, PA
-            </p>
+    <h1>Srujan<br><em>Kulkarni</em></h1>
 
-            <p class="hero-bio">
-                I build mechanical systems that integrate design, electronics, and control.
-                Currently at the University of Pennsylvania, with prior experience designing
-                railway-compliant industrial systems at Atlas Copco.
-            </p>
+    <p class="hero-title">UPenn · Mechatronics · Philadelphia</p>
 
-            <div class="hero-actions">
-                <a href="#projects" class="btn-primary">View Work</a>
-                <a href="Srujan_Kulkarni_Resume.pdf" class="btn-secondary" target="_blank">Resume</a>
-            </div>
+    <p class="hero-bio">
+        I build mechanical systems that integrate design, electronics, and control.
+        Currently at UPenn with prior experience at Atlas Copco designing real industrial systems.
+    </p>
 
-            <div class="hero-logos">
-                <img src="penn.png" alt="University of Pennsylvania Logo">
-                <img src="ACL.png" alt="Atlas Copco Logo">
-            </div>
-        </div>
+    <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Work</a>
+        <a href="Srujan_Kulkarni_Resume.pdf" class="btn btn-secondary">Resume</a>
+    </div>
 
-        <div class="hero-photo">
-            <div class="photo-frame">
-                <img src="profile.jpg" alt="Srujan Kulkarni">
-            </div>
-        </div>
-    </header>
+    <div class="hero-logos">
+        <img src="penn.png">
+        <img src="atlas.png">
+    </div>
+</div>
 
-    <section id="about">
-        <div class="section-header">
-            <span class="section-num">01</span>
-            <h2>About</h2>
-            <div class="section-rule"></div>
-        </div>
+<div class="hero-photo">
+    <img src="profile.jpg" alt="Srujan Kulkarni">
+</div>
 
-        <div class="about-grid">
-            <div class="about-text">
-                <p>
-                    I am a Mechanical Engineering graduate student at the University of Pennsylvania,
-                    focused on robotics, mechatronics, and product design.
-                </p>
-                <p>
-                    Before Penn, I worked at Atlas Copco as a Design Engineer, where I designed
-                    manufacturable mechanical components, supported custom compressor units, created
-                    engineering drawings, worked with PLM systems, and automated CAD workflows.
-                </p>
-                <p>
-                    My goal is to build intelligent hardware products that combine strong mechanical
-                    design, embedded systems, rapid prototyping, and practical engineering judgment.
-                </p>
-            </div>
+</header>
 
-            <div class="highlight-box">
-                <h3>Focus Areas</h3>
-                <ul>
-                    <li>Mechanical design for robotics and mechatronic systems</li>
-                    <li>CAD, DFM, GD&T, and manufacturable product development</li>
-                    <li>Embedded systems, sensors, and control integration</li>
-                    <li>Rapid prototyping using 3D printing and laser cutting</li>
-                    <li>Automation of engineering workflows using programming</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<section id="projects" class="projects">
+<h2>Selected Work</h2>
 
-    <section id="projects" class="projects-band">
-        <div class="projects-inner">
-            <div class="section-header">
-                <span class="section-num">02</span>
-                <h2>Selected Work</h2>
-                <div class="section-rule"></div>
-            </div>
+<div class="project-grid">
 
-            <div class="project-grid">
-                <div class="project-card">
-                    <p class="project-tag">Robotics · Embedded Systems</p>
-                    <h3>Autonomous Competition Robot</h3>
-                    <p>
-                        Designed and fabricated a differential-drive autonomous robot with a laser-cut
-                        acrylic chassis, servo-actuated mechanism, multi-sensor system, and ESP32-S2
-                        control architecture.
-                    </p>
-                    <p>
-                        Implemented PD wall-following using Time-of-Flight sensors with deadband
-                        filtering for collision-free navigation and real-time mode switching through WiFi.
-                    </p>
-                    <div class="tags">
-                        <span>ESP32-S2</span>
-                        <span>PD Control</span>
-                        <span>Laser Cutting</span>
-                        <span>CAD</span>
-                    </div>
-                </div>
+<div class="project-card">
+<h3>Autonomous Robot</h3>
+<p>Designed and built a differential-drive robot with ESP32, sensors, and PD control.</p>
+</div>
 
-                <div class="project-card">
-                    <p class="project-tag">Mechanical Design · Robotics</p>
-                    <h3>Wall-Climbing Glass Cleaning Robot</h3>
-                    <p>
-                        Designed and prototyped a BLDC-driven reverse-thrust suction mechanism for
-                        stable wall adhesion on glass surfaces.
-                    </p>
-                    <p>
-                        Fabricated a custom roller assembly for surface contact and cleaning path control,
-                        and developed an Arduino-Bluetooth control architecture after validating the system
-                        in Proteus.
-                    </p>
-                    <div class="tags">
-                        <span>BLDC</span>
-                        <span>Arduino</span>
-                        <span>Proteus</span>
-                        <span>Prototyping</span>
-                    </div>
-                </div>
+<div class="project-card">
+<h3>Glass Cleaning Robot</h3>
+<p>Developed a BLDC suction-based wall climbing robot with wireless control.</p>
+</div>
 
-                <div class="project-card">
-                    <p class="project-tag">CAD Automation · Product Design</p>
-                    <h3>Engineering Workflow Automation</h3>
-                    <p>
-                        Automated center of gravity computation workflow using VB.NET, reducing
-                        calculation time by 75% and improving repeatability for design evaluation.
-                    </p>
-                    <p>
-                        Developed CAD methods to compute angles between welded bent pipes in metal hose
-                        assemblies, reducing workflow time by 50%.
-                    </p>
-                    <div class="tags">
-                        <span>VB.NET</span>
-                        <span>CAD</span>
-                        <span>Automation</span>
-                        <span>Inventor</span>
-                    </div>
-                </div>
+</div>
+</section>
 
-                <div class="project-card">
-                    <p class="project-tag">Industrial Design · DFM</p>
-                    <h3>Railway Compressor Unit Design</h3>
-                    <p>
-                        Worked on custom compressor unit design under tight under-coach mounting
-                        constraints using sheet metal frames, multifunctional parts, and manufacturable
-                        design principles.
-                    </p>
-                    <p>
-                        Supported design of structural components and detailed engineering drawings while
-                        working with GD&T, BOMs, and PLM tools.
-                    </p>
-                    <div class="tags">
-                        <span>DFM</span>
-                        <span>GD&T</span>
-                        <span>Sheet Metal</span>
-                        <span>PLM</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="experience">
+<h2>Experience</h2>
 
-    <section id="experience" class="experience-band">
-        <div class="experience-inner">
-            <div class="section-header">
-                <span class="section-num">03</span>
-                <h2>Experience</h2>
-                <div class="section-rule"></div>
-            </div>
+<div class="exp-item">
+<h3>Atlas Copco</h3>
+<p>Design Engineer · 2024–2025</p>
+</div>
 
-            <div class="exp-item">
-                <div>
-                    <div class="exp-company">Atlas Copco</div>
-                    <div class="exp-role">Design Engineer</div>
-                    <div class="exp-date">Jan 2024 – Jul 2025</div>
-                </div>
-                <div class="exp-body">
-                    <ul>
-                        <li>Applied DFM principles to design structural components for railway applications compliant with EN 15085 standards.</li>
-                        <li>Automated center of gravity computation using VB.NET, reducing calculation time by 75%.</li>
-                        <li>Led concept to detailed design of a custom compressor unit under tight under-coach mounting constraints.</li>
-                        <li>Engineered a sheet metal duct-panel assembly that improved outlet geometry and reduced noise from 95 dB to 76 dB.</li>
-                    </ul>
-                </div>
-            </div>
+</section>
 
-            <div class="exp-item">
-                <div>
-                    <div class="exp-company">Atlas Copco</div>
-                    <div class="exp-role">Graduate Engineer</div>
-                    <div class="exp-date">Jul 2023 – Dec 2023</div>
-                </div>
-                <div class="exp-body">
-                    <ul>
-                        <li>Developed a CAD method to compute angles between welded bent pipes in metal hoses, reducing workflow time by 50%.</li>
-                        <li>Conducted 3D routing feasibility studies to standardize hose variants and reduce inventory cost.</li>
-                        <li>Managed Engineering Change Orders in Vault and Change Actions in Enovia across multiple projects.</li>
-                    </ul>
-                </div>
-            </div>
+<section id="education">
+<h2>Education</h2>
 
-            <div class="exp-item">
-                <div>
-                    <div class="exp-company">Atlas Copco</div>
-                    <div class="exp-role">Design Co-op</div>
-                    <div class="exp-date">Jan 2023 – May 2023</div>
-                </div>
-                <div class="exp-body">
-                    <ul>
-                        <li>Created detailed 2D engineering drawings for sheet metal supports, frames, and hoses following GD&T practices.</li>
-                        <li>Designed retrofit components to integrate new air treatment systems into compressor assemblies.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="education-card">
+<img src="penn.png" class="education-logo">
+<p>University of Pennsylvania</p>
+</div>
 
-    <section id="skills">
-        <div class="section-header">
-            <span class="section-num">04</span>
-            <h2>Skills</h2>
-            <div class="section-rule"></div>
-        </div>
+</section>
 
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>CAD & Design</h3>
-                <p>Autodesk Inventor, SolidWorks, CATIA, Fusion 360, AutoCAD, GD&T, DFM, sheet metal design, BOM creation.</p>
-            </div>
+<section id="contact">
+<h2>Contact</h2>
 
-            <div class="skill-card">
-                <h3>Simulation & Analysis</h3>
-                <p>ANSYS Fluent, FEA, MATLAB, Simulink, first-principles analysis, mechanical tradeoff evaluation.</p>
-            </div>
+<div class="contact-links">
+<a href="mailto:srujank@seas.upenn.edu">Email</a>
+<a href="https://linkedin.com">LinkedIn</a>
+</div>
 
-            <div class="skill-card">
-                <h3>Robotics & Electronics</h3>
-                <p>ESP32, Raspberry Pi, Arduino, ItsyBitsy 32u4, sensors, embedded control, Gazebo, Proteus, circuit assembly.</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Prototyping</h3>
-                <p>3D printing, laser cutting, fabrication, soldering, mechanism iteration, hardware testing.</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Programming</h3>
-                <p>Python, C++, VB.NET, CAD automation, data processing, engineering workflow automation.</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Product Development</h3>
-                <p>PLM with Enovia and Autodesk Vault, ECO/ECR workflows, design documentation, manufacturing constraints.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="education">
-        <div class="section-header">
-            <span class="section-num">05</span>
-            <h2>Education</h2>
-            <div class="section-rule"></div>
-        </div>
-
-        <div class="education-grid">
-            <div class="education-card">
-                <img src="penn.png" alt="UPenn Logo" class="education-logo">
-                <div class="degree">Master of Science</div>
-                <div class="school">University of Pennsylvania</div>
-                <div class="edu-details">
-                    Mechanical Engineering, Mechatronics & Robotics<br>
-                    Expected May 2027 · GPA 3.67<br>
-                    Coursework: Robotics, Design of Mechatronic Systems
-                </div>
-            </div>
-
-            <div class="education-card">
-                <div class="degree">Bachelor of Technology</div>
-                <div class="school">Savitribai Phule Pune University</div>
-                <div class="edu-details">
-                    Mechanical Engineering<br>
-                    Graduated May 2023 · GPA 3.85<br>
-                    Coursework: Machine Design, CAD/CAM/CAE, Materials and Process Engineering
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="contact-inner">
-            <div class="contact-layout">
-                <p class="contact-blurb">
-                    Interested in building mechanical systems, robotics hardware,
-                    and <em>real products</em> that move from concept to working prototypes.
-                </p>
-
-                <div class="contact-links">
-                    <a href="mailto:srujank@seas.upenn.edu">srujank@seas.upenn.edu</a>
-                    <a href="https://www.linkedin.com/in/srujan26" target="_blank">LinkedIn</a>
-                    <a href="Srujan_Kulkarni_Resume.pdf" target="_blank">Download Resume</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        © 2026 Srujan Kulkarni
-    </footer>
+</section>
 
 </body>
 </html>
