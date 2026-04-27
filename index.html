@@ -252,6 +252,25 @@ h2 {
     border-radius: 0;
     display: block;
 }
+
+.project-images {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.project-images img {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    object-fit: cover;
+    display: block;
+    background:
+        linear-gradient(135deg, rgba(230,57,70,0.28), rgba(255,255,255,0.05)),
+        #111111;
+    padding: 8px;
+}
 .project-visual video,
 .project-video {
     width: auto;
@@ -646,23 +665,29 @@ footer {
 
         <div class="project-feature">
             <div class="project-visual">
-                <img src="autonomous-robot.jpg" alt="Autonomous competition robot">
+                <div class="project-images">
+                    <img src="autonomous-robot.jpg" alt="Autonomous competition robot">
+                    <img src="robot-cad.png" alt="Fusion 360 CAD model of autonomous competition robot">
+                </div>
             </div>
             <div class="project-content">
-                <p class="project-kicker">Robotics · Embedded Systems · Controls</p>
+                <p class="project-kicker">Robotics · CAD Design · Embedded Systems · Controls</p>
                 <h3>Autonomous Competition Robot</h3>
                 <p>
-                    Designed and fabricated a differential-drive autonomous robot with a laser-cut acrylic chassis, servo-actuated mechanism, multi-sensor system, and ESP32-S2 control architecture.
+                    Designed and fabricated a differential-drive autonomous robot with a two-layer acrylic chassis, servo-actuated attacker arm, multi-sensor system, and ESP32-S2 control architecture.
+                </p>
+                <p>
+                    Developed the mechanical design in Fusion 360 with a focus on simple steering, fast assembly, clean wiring, and reliable mounting for the main circuit, ToF sensors, Vive circuits, Top Hat, whisker switch, and servo mechanism.
                 </p>
                 <p>
                     Implemented PD wall-following using Time-of-Flight sensors with deadband filtering for collision-free navigation, along with WiFi-based mode switching between manual control, wall following, and coordinate navigation.
                 </p>
 
                 <div class="project-specs">
-                    <div><span>Hardware</span><strong>ESP32-S2, ToF sensors, servo mechanism</strong></div>
+                    <div><span>CAD</span><strong>Fusion 360, two-layer acrylic chassis</strong></div>
                     <div><span>Fabrication</span><strong>Laser cutting, 3D printing, assembly</strong></div>
-                    <div><span>Control</span><strong>PD wall following, deadband filtering</strong></div>
-                    <div><span>Result</span><strong>Quarterfinalist competition robot</strong></div>
+                    <div><span>Control</span><strong>PD wall following, ToF sensing, ESP32-S2</strong></div>
+                    <div><span>Result</span><strong>ROBA 2025 quarterfinalist robot</strong></div>
                 </div>
             </div>
         </div>
