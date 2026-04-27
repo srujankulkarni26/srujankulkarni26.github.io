@@ -1,32 +1,328 @@
-<!-- ONLY showing modified parts — rest remains EXACTLY same as your file -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- NAV -->
+<title>Srujan Kulkarni | Robotics & Mechanical Design</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--black:#000;
+--white:#fff;
+--red:#e63946;
+--text:#3f3f3f;
+--muted:#777;
+--soft:#f6f6f6;
+--line:rgba(0,0,0,0.1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'DM Sans',sans-serif;
+background:#fff;
+color:#000;
+}
+
+/* NAV */
+nav{
+position:fixed;
+width:100%;
+padding:1rem 4rem;
+display:flex;
+justify-content:space-between;
+background:#fff;
+border-bottom:1px solid var(--line);
+z-index:100;
+}
+
+.logo{
+font-family:'DM Serif Display',serif;
+font-size:1.3rem;
+}
+
+.logo em{color:var(--red);}
+
+nav ul{
+display:flex;
+gap:2rem;
+list-style:none;
+}
+
+nav a{
+font-family:'DM Mono',monospace;
+font-size:0.7rem;
+text-decoration:none;
+color:var(--muted);
+}
+
+/* HERO */
+.hero{
+display:grid;
+grid-template-columns:1fr 1fr;
+padding-top:5rem;
+min-height:100vh;
+}
+
+.hero-left{
+padding:5rem 4rem;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.hero h1{
+font-family:'DM Serif Display',serif;
+font-size:3.5rem;
+margin-bottom:1rem;
+}
+
+.hero h1 em{color:var(--red);}
+
+.hero-subtitle{
+font-family:'DM Mono',monospace;
+font-size:0.75rem;
+color:var(--muted);
+margin-bottom:1rem;
+}
+
+.hero-copy{
+max-width:520px;
+color:var(--text);
+line-height:1.8;
+margin-bottom:2rem;
+}
+
+.hero-actions{
+display:flex;
+gap:1rem;
+margin-bottom:2rem;
+}
+
+.btn{
+padding:0.8rem 1.5rem;
+font-family:'DM Mono',monospace;
+font-size:0.7rem;
+text-decoration:none;
+}
+
+.btn-dark{background:#000;color:#fff;}
+.btn-light{border:1px solid #000;}
+
+.hero-logos{
+display:flex;
+gap:1.5rem;
+}
+
+.hero-logos img{
+height:40px;
+}
+
+.hero-photo{
+display:flex;
+align-items:center;
+justify-content:center;
+padding:2rem;
+}
+
+.hero-photo img{
+width:100%;
+max-width:420px;
+object-fit:contain;
+}
+
+/* PROJECTS */
+.projects{
+background:#000;
+color:#fff;
+padding:4rem;
+}
+
+.project{
+display:grid;
+grid-template-columns:1fr 1fr;
+margin-bottom:2rem;
+}
+
+.project img{
+width:100%;
+height:300px;
+object-fit:cover;
+}
+
+.project-content{
+padding:2rem;
+}
+
+.project h3{
+font-family:'DM Serif Display',serif;
+}
+
+/* EXPERIENCE */
+.experience{
+background:var(--soft);
+padding:4rem;
+}
+
+.exp-block{
+display:grid;
+grid-template-columns:200px 1fr;
+gap:2rem;
+}
+
+.exp-left img{
+width:150px;
+border-radius:16px;
+}
+
+.exp-role{
+margin-bottom:2rem;
+}
+
+.exp-role h3{
+font-family:'DM Serif Display',serif;
+}
+
+/* CONTACT */
+.contact{
+background:#000;
+color:#fff;
+padding:4rem;
+}
+
+@media(max-width:900px){
+.hero{grid-template-columns:1fr;}
+.project{grid-template-columns:1fr;}
+.exp-block{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">Srujan <em>Kulkarni</em></div>
 <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>  <!-- changed -->
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#contact">Contact</a></li>
 </ul>
+</nav>
 
-<!-- HERO BUTTON -->
-<div class="hero-actions">
-    <a href="#projects" class="btn btn-dark">View Projects</a> <!-- changed -->
-    <a href="Srujan_Kulkarni_Resume.pdf" target="_blank" class="btn btn-light">Resume</a>
-</div>
+<header class="hero">
 
-<!-- HERO TEXT FIX (spacing + valid HTML) -->
+<div class="hero-left">
+
+<h1>Srujan<br><em>Kulkarni</em></h1>
+
+<p class="hero-subtitle">
+Mechanical Engineering · Robotics · Mechatronics
+</p>
+
 <div class="hero-copy">
-    <p>
-        I am a Mechanical Engineering graduate student at the University of Pennsylvania focused on robotics, mechatronics, and product design.
-    </p>
-    <p>
-        Before Penn, I worked at Atlas Copco as a Design Engineer, where I designed manufacturable components, supported custom compressor unit development, created GD&T-based engineering drawings, managed PLM workflows, and automated CAD tasks.
-    </p>
-    <p>
-        I am most interested in hardware roles where mechanical design meets electronics, sensors, prototyping, and real-world product constraints.
-    </p>
+<p>
+I am a Mechanical Engineering graduate student at the University of Pennsylvania focused on robotics, mechatronics, and product design.
+</p>
+<p>
+Before Penn, I worked at Atlas Copco as a Design Engineer, where I designed manufacturable components, supported compressor systems, worked with GD&T, PLM tools, and automated CAD workflows.
+</p>
+<p>
+I am most interested in hardware roles where mechanical design meets electronics, sensors, prototyping, and real-world product constraints.
+</p>
 </div>
 
-<!-- LOGO FIXES -->
-<img src="ACL.png" alt="Atlas Copco logo">
+<div class="hero-actions">
+<a href="#projects" class="btn btn-dark">View Projects</a>
+<a href="Srujan_Kulkarni_Resume.pdf" class="btn btn-light">Resume</a>
+</div>
+
+<div class="hero-logos">
+<img src="penn.png">
+<img src="ACL.png">
+</div>
+
+</div>
+
+<div class="hero-photo">
+<img src="profile.jpg">
+</div>
+
+</header>
+
+<section id="projects" class="projects">
+
+<div class="project">
+<img src="autonomous-robot.jpg">
+<div class="project-content">
+<h3>Autonomous Robot</h3>
+<p>ESP32 based differential drive robot with PD control.</p>
+</div>
+</div>
+
+<div class="project">
+<img src="glass-robot.jpg">
+<div class="project-content">
+<h3>Glass Cleaning Robot</h3>
+<p>BLDC suction mechanism robot for wall climbing.</p>
+</div>
+</div>
+
+<div class="project">
+<img src="cad-automation.jpg">
+<div class="project-content">
+<h3>CAD Automation</h3>
+<p>75% faster engineering workflow using VB.NET.</p>
+</div>
+</div>
+
+<div class="project">
+<img src="thermal-fins.jpg">
+<div class="project-content">
+<h3>Thermal Analysis of Annular Fins</h3>
+<p>14.3% higher heat dissipation with &lt;3% deviation from theory.</p>
+</div>
+</div>
+
+</section>
+
+<section id="experience" class="experience">
+
+<div class="exp-block">
+
+<div class="exp-left">
+<img src="ACL.png">
+</div>
+
+<div>
+
+<div class="exp-role">
+<h3>Design Engineer</h3>
+<p>Jan 2024 – Jul 2025</p>
+</div>
+
+<div class="exp-role">
+<h3>Graduate Engineer</h3>
+<p>Jul 2023 – Dec 2023</p>
+</div>
+
+<div class="exp-role">
+<h3>Design Co-op</h3>
+<p>Jan 2023 – May 2023</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+<h2>Contact</h2>
+<p>Email: srujank@seas.upenn.edu</p>
+</section>
+
+</body>
+</html>
