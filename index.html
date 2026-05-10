@@ -718,28 +718,40 @@ footer {
             </div>
         </div>
 
-        <div class="project-feature">
-            <div class="project-visual">
-                <img src="thermal-fins.jpg" alt="Thermal analysis of annular fins">
-            </div>
-            <div class="project-content">
-                <p class="project-kicker">Thermal Analysis · FEA · Heat Transfer</p>
-                <h3>Thermal Analysis of Annular Fins</h3>
-                <p>
-                    Designed and simulated rectangular and triangular annular fin geometries in SolidWorks and ANSYS to evaluate thermal performance for engine cylinder cooling applications.
-                </p>
-                <p>
-                    Analyzed temperature distribution and heat flux data, identifying that the rectangular profile delivered 14.3% higher heat dissipation compared to the triangular configuration.
-                </p>
-
-                <div class="project-specs">
-                    <div><span>Tools</span><strong>SolidWorks, ANSYS Mechanical</strong></div>
-                    <div><span>Analysis</span><strong>Temperature distribution and heat flux</strong></div>
-                    <div><span>Result</span><strong>14.3% higher heat dissipation</strong></div>
-                    <div><span>Validation</span><strong>&lt;3% deviation from theory</strong></div>
-                </div>
-            </div>
+       <div class="project-feature">
+    <div class="project-visual">
+        <div class="project-images">
+            <img src="thermal-fins-cad.jpg" alt="CAD model of annular fins">
+            <img src="thermal-fins-heatflux.jpg" alt="Heat flux result of annular fins">
+            <img src="thermal-fins-temp.jpg" alt="Temperature distribution result of annular fins">
+            <img src="thermal-fins-result.jpg" alt="Thermal analysis result comparison">
         </div>
+    </div>
+
+    <div class="project-content">
+        <p class="project-kicker">Thermal Analysis · FEA · Heat Transfer · CAD</p>
+        <h3>Thermal Analysis of Annular Fins</h3>
+
+        <p>
+            Designed rectangular and triangular annular fin profiles in SolidWorks to compare heat transfer performance for engine cylinder cooling applications.
+        </p>
+
+        <p>
+            Performed steady-state thermal analysis in ANSYS using Aluminium Alloy 2023, with a base temperature of 500 K, ambient temperature of 300 K, and convection coefficient of 50 W/m²K.
+        </p>
+
+        <p>
+            Compared temperature distribution, heat flux, and total heat transfer for both profiles, then validated the ANSYS results using conventional convection calculations.
+        </p>
+
+        <div class="project-specs">
+            <div><span>Tools</span><strong>SolidWorks, ANSYS Mechanical</strong></div>
+            <div><span>Boundary Conditions</span><strong>500 K base, 300 K ambient, h = 50 W/m²K</strong></div>
+            <div><span>Result</span><strong>Rectangular: 696.72 W, Triangular: 596.82 W</strong></div>
+            <div><span>Validation</span><strong>2.79% and 2.64% error vs hand calculations</strong></div>
+        </div>
+    </div>
+</div>
 
         <div class="project-feature">
             <div class="project-visual">
